@@ -1,7 +1,7 @@
-# E-Portfolio – İley Demir
+# E-Portfolio – Iley Demir
 
 ## About Me
-I am a second-year Information and Communication Technology student at KTH with an interest in software development and embedded systems. Through my coursework, I have gained experience in networking, low-level programming, and algorithm analysis.
+I am a second-year Information and Communication Technology student at KTH with an interest in software development and embedded systems, with a long-term interest in AI and cybersecurity. Through my coursework, I have gained experience in networking, low-level programming, and algorithm analysis.
 
 ---
 
@@ -35,21 +35,24 @@ if (!parts[0].equals("GET") || !parts[2].equals("HTTP/1.1")) {
 ---
 
 ### Computer Hardware Engineering Lab – Interrupt Handling
-- Implemented timer-based and button-triggered interrupts
-- Worked with low-level hardware interaction
-- Focused on real-time system behavior
+- Implemented timer-driven functionality using low-level hardware registers
+- Worked with direct memory access and bitwise operations for hardware interaction
+- Developed functionality for handling input from buttons and switches and updating display output
 
 **My contribution:**
-- Implemented interrupt service routines
-- Configured timers and input handling
-- Debugged hardware-level behavior
+- Implemented timer configuration and polling logic
+- Handled hardware status flags and control registers
+- Developed logic for real-time updates and user input handling
 
 **Technologies:** C, microcontrollers
 
 **Example snippet:**
 ```c
-void Timer_ISR(void) {
-    // Handle timer interrupt
+volatile unsigned int *timer = (volatile unsigned int *)0x04000020;
+unsigned int status = timer[0];
+
+if (status & 0x1) {
+    timer[0] = 0; // clear timeout flag
 }
 ```
 
